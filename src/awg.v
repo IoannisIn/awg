@@ -10,7 +10,7 @@ module tt_um_awg (
     );
 
     assign clk = clk;
-    assign rst = !rst_n;
+    assign rst = rst_n;
 
     assign uart_rx = ui_in[0];
     assign uo_out = waveform_data[7:0];
