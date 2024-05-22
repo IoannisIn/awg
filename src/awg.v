@@ -9,15 +9,10 @@ module tt_um_awg (
     input  wire       rst_n     // reset_n - low to reset
     );
 
-    assign clk = clk;
-    assign rst_n = !rst;
+    // Declare internal signals
+    wire rst = ~rst_n; // Create an internal active-high reset signal
+    wire uart_rx = ui_in[0]; // Assuming uart_rx is mapped to ui_in[0]
 
-    assign ui_in[0] = uart_rx;
-    assign uo_out = waveform_data[7:0];
-    assign uio_out[1:0] = waveform_data[9:8];
-    assign uio_oe  = 1;
-
-    wire clk;
     wire [7:0] uart_data;
     wire data_valid;
     wire [1:0] waveform_type;
@@ -25,7 +20,12 @@ module tt_um_awg (
     wire [9:0] amplitude;
     wire [9:0] dc_offset;
     wire [9:0] waveform_data;
-    
+
+    // Assign output signals
+    assign uo_out = waveform_data[7:0];
+    assign uio_out[1:0] = waveform_data[9:8];
+    assign uio_oe  = 8'b11111111; // Assuming all outputs are enabled
+
     // Instantiate UART Receiver
     UART_Receiver uart_receiver (
         .clk(clk),
