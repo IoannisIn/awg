@@ -1,3 +1,5 @@
+`define default_netname none
+
 module tt_um_awg (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
@@ -24,7 +26,7 @@ module tt_um_awg (
     // Assign output signals
     assign uo_out = waveform_data[7:0];
     assign uio_out[1:0] = waveform_data[9:8];
-    assign uio_oe  = 8'b11111111; // Assuming all outputs are enabled
+    assign uio_oe  = 8'b00000011; // Assuming all outputs are enabled
 
     // Instantiate UART Receiver
     UART_Receiver uart_receiver (
