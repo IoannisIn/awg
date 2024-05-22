@@ -6,11 +6,8 @@ module UART_Receiver (
     output reg data_valid
 );
 
-    parameter BAUD_RATE = 9600;
-    parameter CLK_FREQ = 50000000;
-
-    localparam integer BAUD_TICK_COUNT = CLK_FREQ / BAUD_RATE;
-
+    parameter BAUD_TICK_COUNT = 32'd10416; // Example baud tick count
+    
     reg [15:0] baud_counter;
     reg [3:0] bit_index;
     reg [7:0] rx_shift_reg;
