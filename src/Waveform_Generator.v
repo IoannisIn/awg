@@ -2,7 +2,7 @@ module Waveform_Generator (
     input wire clk,
     input wire rst,
     input wire [1:0] waveform_type,
-    input wire [16:0] frequency,
+    input wire [15:0] frequency,
     input wire [9:0] amplitude,
     input wire [9:0] dc_offset,
     output reg [9:0] waveform_data
