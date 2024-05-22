@@ -10,21 +10,22 @@ module tt_um_awg (
     );
 
     assign clk = clk;
-    assign rst = rst_n;
+    assign rst_n = !rst;
 
-    assign uart_rx = ui_in[0];
+    assign ui_in[0] = uart_rx;
     assign uo_out = waveform_data[7:0];
     assign uio_out[1:0] = waveform_data[9:8];
     assign uio_oe  = 1;
 
-    
+    wire clk;
     wire [7:0] uart_data;
     wire data_valid;
     wire [1:0] waveform_type;
     wire [15:0] frequency;
     wire [9:0] amplitude;
     wire [9:0] dc_offset;
-
+    wire [9:0] waveform_data;
+    
     // Instantiate UART Receiver
     UART_Receiver uart_receiver (
         .clk(clk),
