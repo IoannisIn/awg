@@ -8,7 +8,7 @@ module UART_Receiver (
 
     parameter BAUD_TICK_COUNT = 32'd10416; // Example baud tick count
     
-    reg [15:0] baud_counter;
+    reg [31:0] baud_counter; // Widened to 32 bits
     reg [3:0] bit_index;
     reg [7:0] rx_shift_reg;
     reg rx_sample;
