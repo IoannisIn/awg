@@ -85,9 +85,9 @@ module Waveform_Generator (
                 2'b00: // Sine
                     waveform_data <= ((sine_lut[lookup_index] * amplitude) >> 10) + dc_offset;
                 2'b01: // Triangle
-                    waveform_data <= (((lookup_index < 64) ? lookup_index : (127 - lookup_index)) * amplitude / 64) + dc_offset;
+                    waveform_data <= (((lookup_index < 64) ? {3'b000, lookup_index} : {3'b000, 7'd127 - lookup_index}) * amplitude / 64) + dc_offset;
                 2'b10: // Sawtooth
-                    waveform_data <= (lookup_index * amplitude / 128) + dc_offset;
+                    waveform_data <= ({3'b000, lookup_index} * amplitude / 128) + dc_offset;
                 2'b11: // Square
                     waveform_data <= ((lookup_index < 64) ? amplitude : 0) + dc_offset;
                 default:
