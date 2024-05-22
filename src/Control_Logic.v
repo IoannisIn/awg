@@ -21,8 +21,8 @@ module Control_Logic (
             // Here, we decode based on assumed structure (update as needed)
             waveform_type <= uart_data[1:0];
             frequency <= {2'b0, uart_data[7:2], uart_data}; // Adjusted width
-            amplitude <= {2'b0, uart_data[7:4], uart_data}; // Adjusted width
-            dc_offset <= {4'b0, uart_data}; // Adjusted width
+            amplitude <= {2'b0, uart_data}; // Adjusted width
+            dc_offset <= {2'b0, uart_data}; // Adjusted width
         end
     end
 
