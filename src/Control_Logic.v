@@ -20,9 +20,9 @@ module Control_Logic (
             // Assume the UART data packet is structured in a specific way
             // Here, we decode based on assumed structure (update as needed)
             waveform_type <= uart_data[1:0];
-            frequency <= {uart_data[7:2], uart_data}; // Example structuring
-            amplitude <= {uart_data[7:4], uart_data}; // Example structuring
-            dc_offset <= {uart_data[7:4], uart_data}; // Example structuring
+            frequency <= {2'b0, uart_data[7:2], uart_data}; // Adjusted width
+            amplitude <= {2'b0, uart_data[7:4], uart_data}; // Adjusted width
+            dc_offset <= {2'b0, uart_data[7:4], uart_data}; // Adjusted width
         end
     end
 
