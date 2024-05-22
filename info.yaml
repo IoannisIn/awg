@@ -1,28 +1,31 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
+  title:        "awg"      # Project title
+  author:       "Ioannis Intzes"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "test"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "awg"
   
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
-    - "project.v"
+    - "awg.v"
+    - "Control_Logic.v"
+    - "UART_Receiver.v"
+    - "Waveform_Generator.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
+  ui[0]: "clk"
+  ui[1]: "rst"
+  ui[2]: "uart_rx"
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
@@ -30,18 +33,18 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "waveform_data[0]"
+  uo[1]: "waveform_data[1]"
+  uo[2]: "waveform_data[2]"
+  uo[3]: "waveform_data[3]"
+  uo[4]: "waveform_data[4]"
+  uo[5]: "waveform_data[5]"
+  uo[6]: "waveform_data[6]"
+  uo[7]: "waveform_data[7]"
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
+  uio[0]: "waveform_data[8]"
+  uio[1]: "waveform_data[9]"
   uio[2]: ""
   uio[3]: ""
   uio[4]: ""
