@@ -16,7 +16,7 @@ module tt_um_awg (
     wire [7:0] uart_data;
     wire data_valid;
     wire [1:0] waveform_type;
-    wire [16:0] frequency;
+    wire [15:0] frequency;
     wire [9:0] amplitude;
     wire [9:0] dc_offset;
     wire [9:0] waveform_data;
