@@ -9,7 +9,7 @@ module Waveform_Generator (
 );
 
     // Parameters
-    localparam N = 10; // Resolution
+    //localparam N = 10; // Resolution
     localparam M = 128; // Number of points per period
 
     // Internal variables
