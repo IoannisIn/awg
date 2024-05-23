@@ -13,8 +13,8 @@ The idea is to control a waveform generator via uart protocol. This is a test pr
 
 ## How to test
 
-Explain how to use your project
+Connect in pin RX of the board and send serial commands
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Possible use of an Arduino board to send the commands
